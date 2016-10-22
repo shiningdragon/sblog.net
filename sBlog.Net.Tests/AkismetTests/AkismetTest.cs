@@ -17,6 +17,7 @@ namespace sBlog.Net.Tests.AkismetTests
              api = new Akismet.Akismet(key, blog, null);
         }
 
+        [Ignore]
         [TestMethod]
         public void Verification() 
         {
@@ -44,6 +45,7 @@ namespace sBlog.Net.Tests.AkismetTests
             Assert.IsTrue(result, "API was expected to return 'True' when 'False' was returned instead.");
         }
 
+        [Ignore]
         [TestMethod]
         public void NonSpamTest() 
         {
