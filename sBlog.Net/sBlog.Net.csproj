@@ -645,6 +645,7 @@
     <Content Include="Content\Site.min.css" />
     <Content Include="Content\SiteCommons.css" />
     <Content Include="favicon.ico" />
+    <Content Include="parameters.xml" />
     <Content Include="Scripts\MarkdownDeep License.txt" />
     <Content Include="Scripts\MarkdownDeep Quick Reference.txt" />
     <Content Include="Scripts\MarkdownDeepLib.min.js" />
