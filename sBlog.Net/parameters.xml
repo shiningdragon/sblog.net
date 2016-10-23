@@ -1,5 +1,5 @@
 ﻿<parameters>
-  <parameter name=""
+  <parameter name="ConnectionString"
          description="ConnectionString"
          defaultValue="someValue">
     <parameterEntry kind="XmlFile" scope="Web.config"
