@@ -163,11 +163,12 @@ END
 UPDATE sBlog_Settings SET KeyValue = '02_02' WHERE KeyName = 'BlogDbVersion';
 GO
 
+-- Create web service account login and user
 USE MASTER
 GO
 IF NOT EXISTS (SELECT * FROM sys.server_principals where name = '$(WebServiceAccount)')
 BEGIN
-CREATE LOGIN  $(WebServiceAccount) FROM WINDOWS
+CREATE LOGIN  [$(WebServiceAccount)] FROM WINDOWS
 END
 GO
 
@@ -175,9 +176,9 @@ USE $(DatabaseName)
 GO
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'$(WebServiceAccount)')
 BEGIN
-    CREATE USER $(WebServiceAccount) FOR LOGIN $(WebServiceAccount)
-    EXEC sp_addrolemember N'db_reader', N'$(WebServiceAccount)'
-	EXEC sp_addrolemember N'db_writer', N'$(WebServiceAccount)'
+    CREATE USER [$(WebServiceAccount)] FOR LOGIN [$(WebServiceAccount)]
+    EXEC sp_addrolemember N'db_datareader', N'$(WebServiceAccount)'
+	EXEC sp_addrolemember N'db_datawriter', N'$(WebServiceAccount)'
 END;
 GO
 
