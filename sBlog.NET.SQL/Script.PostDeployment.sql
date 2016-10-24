@@ -163,46 +163,23 @@ END
 UPDATE sBlog_Settings SET KeyValue = '02_02' WHERE KeyName = 'BlogDbVersion';
 GO
 
---INSERT INTO [dbo].[Posts]
---		([PostTitle],[PostContent],[PostUrl],[PostAddedDate],[PostEditedDate],[OwnerUserID],
---		[UserCanAddComments],[CanBeShared],[IsPrivate],[EntryType],[Order])
---	VALUES
---		('Hello World!',
---		'Hello World!<br /><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non sollicitudin dui. Nunc ac augue tellus, sit amet rutrum nunc. Integer malesuada sapien tincidunt ligula vulputate blandit eu eget tellus. Praesent rhoncus neque eget augue blandit viverra. Praesent mattis gravida egestas. Integer dictum, sapien sit amet pharetra tempus, elit elit porta sem, sed fermentum tortor diam quis nulla. Sed felis sem, ultrices quis sagittis vitae, convallis at dui. Curabitur rutrum, nulla vitae semper interdum, justo velit blandit augue, ac porta lorem lorem a est. Curabitur quis metus in magna scelerisque viverra. Proin id leo eros, ullamcorper pellentesque mauris. Donec metus leo, varius at faucibus id, interdum a ipsum. Donec adipiscing tortor ac nulla convallis scelerisque. Ut posuere aliquam dolor eu viverra. Maecenas ut arcu eu lacus iaculis euismod dictum pulvinar turpis. Nulla vel sem eget lacus tristique lacinia eu id diam.<br /><br />',
---		'hello-world',GETDATE(),GETDATE(),1,'true','true','false',1,NULL)
+USE MASTER
+GO
+IF NOT EXISTS (SELECT * FROM sys.server_principals where name = '$(WebServiceAccount)')
+BEGIN
+CREATE LOGIN  $(WebServiceAccount) FROM WINDOWS
+END
+GO
 
---/* Insert the default page */
---INSERT INTO [dbo].[Posts]
---			([PostTitle],[PostContent],[PostUrl],[PostAddedDate],[PostEditedDate],[OwnerUserID],
---			[UserCanAddComments],[CanBeShared],[IsPrivate],[EntryType],[Order])
---VALUES
---	('About',
---	'This is just a basic &quot;About&quot; page!<br /><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non sollicitudin dui. Nunc ac augue tellus, sit amet rutrum nunc. Integer malesuada sapien tincidunt ligula vulputate blandit eu eget tellus. Praesent rhoncus neque eget augue blandit viverra. Praesent mattis gravida egestas. Integer dictum, sapien sit amet pharetra tempus, elit elit porta sem, sed fermentum tortor diam quis nulla. Sed felis sem, ultrices quis sagittis vitae, convallis at dui. Curabitur rutrum, nulla vitae semper interdum, justo velit blandit augue, ac porta lorem lorem a est. Curabitur quis metus in magna scelerisque viverra. Proin id leo eros, ullamcorper pellentesque mauris. Donec metus leo, varius at faucibus id, interdum a ipsum. Donec adipiscing tortor ac nulla convallis scelerisque. Ut posuere aliquam dolor eu viverra. Maecenas ut arcu eu lacus iaculis euismod dictum pulvinar turpis. Nulla vel sem eget lacus tristique lacinia eu id diam.<br /><br />',
---	'about',GETDATE(),GETDATE(),1,'true','true','false',2,1)
-
-			   
---/* Insert a default comment for the defaul page & post */
---INSERT INTO [dbo].[Comments]
---			([CommentUserFullName],[CommenterEmail],[CommenterSite]
---			,[CommentContent],[CommentPostedDate],[CommentStatus],[PostID],[UserID])
---		VALUES('admin','','','Welcome to the blogosphere!',
---			GETDATE(),0,1,NULL);
---INSERT INTO [dbo].[Comments]
---			([CommentUserFullName],[CommenterEmail],[CommenterSite]
---			,[CommentContent],[CommentPostedDate],[CommentStatus],[PostID],[UserID])
---		VALUES('admin','','','About Me!',
---			GETDATE(),0,2,NULL);
-
---/* Insert default category */
---INSERT INTO Categories (CategoryName, CategorySlug) VALUES ('General','general');
-
---/* Insert a default tag */
---INSERT INTO [dbo].[Tags] (TagName, TagSlug) VALUES('general','general');
-
---INSERT INTO [dbo].[CategoryMapping]([CategoryID],[PostID]) VALUES (1,1)
-
---/* Add default tag mapping */
---INSERT INTO [dbo].[TagMapping] VALUES(1,1);
+USE $(DatabaseName)
+GO
+IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'$(WebServiceAccount)')
+BEGIN
+    CREATE USER $(WebServiceAccount) FOR LOGIN $(WebServiceAccount)
+    EXEC sp_addrolemember N'db_reader', N'$(WebServiceAccount)'
+	EXEC sp_addrolemember N'db_writer', N'$(WebServiceAccount)'
+END;
+GO
 
 
 

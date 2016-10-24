@@ -177,4 +177,10 @@
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="WebServiceAccount">
+      <DefaultValue>blah</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
 </Project>
