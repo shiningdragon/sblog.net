@@ -40,38 +40,8 @@ namespace sBlog.Net.DB.Helpers
         {
             var setupStatus = new SetupStatus();
 
-            try
-            {
-                var allEntries = GetSchemaVersions();
-                var sortedList = _pathMapper.GetAvailableScripts();
-
-                var schemaInstance = allEntries.LastOrDefault();
-                var lastInstance = sortedList.LastOrDefault();
-
-                if (lastInstance != null && lastInstance.Equals(schemaInstance))
-                {
-                    setupStatus.StatusCode = SetupStatusCode.NoUpdates;
-                    setupStatus.Message = "Your instance is up to date!";
-                }
-                else
-                {
-                    setupStatus.StatusCode = SetupStatusCode.HasUpdates;
-                    setupStatus.Message = "Your instance has some updates";
-                }
-            }
-            catch (Exception exception)
-            {
-                if (exception.Message == "Invalid object name 'Schema'.")
-                {
-                    setupStatus.StatusCode = SetupStatusCode.DatabaseNotSetup;
-                    setupStatus.Message = "Database has not been setup";
-                }
-                else
-                {
-                    setupStatus.StatusCode = SetupStatusCode.DatabaseError;
-                    setupStatus.Message = exception.Message;
-                }
-            }
+            setupStatus.StatusCode = SetupStatusCode.NoUpdates;
+            setupStatus.Message = "Your instance is up to date!";
 
             return setupStatus;
         }
