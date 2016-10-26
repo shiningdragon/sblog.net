@@ -18,6 +18,8 @@
 using System;
 using sBlog.Net.DependencyManagement;
 
+using Microsoft.ApplicationInsights;
+
 namespace sBlog.Net.Infrastructure
 {
     public class ErrorLogger
@@ -31,8 +33,9 @@ namespace sBlog.Net.Infrastructure
 
         public void Log()
         {
-            LogError();
-            SendEmail();
+            //LogError();
+            //SendEmail();
+            LogApplicationInsights();
         }
 
         /// <summary>
@@ -56,6 +59,12 @@ namespace sBlog.Net.Infrastructure
         {
             var errorRepository = InstanceFactory.CreateErrorInstance();
             errorRepository.InsertException(_exception);
+        }
+
+        private void LogApplicationInsights()
+        {
+            TelemetryClient telemetry = new TelemetryClient();
+            telemetry.TrackException(_exception);
         }
     }
 }

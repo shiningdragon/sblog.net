@@ -14,3 +14,4 @@ _ReSharper.*
 Ankh.NoLoad
 /sBlog.NET.SQL/sBlog.NET.SQL.jfm
 /sBlog.NET.SQL/sBlog.NET.SQL.dbmdl
+/packages

@@ -37,6 +37,8 @@ using sBlog.Net.Binders;
 using System.Web.Security;
 using System.Security.Principal;
 using sBlog.Net.Filters;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
 
 namespace sBlog.Net
 {
@@ -131,6 +133,16 @@ namespace sBlog.Net
 
         protected void Application_Start()
         {
+            // Configure app insights
+            var instrumentationKey = ConfigurationManager.AppSettings["ApplicationInsightsInstrumentationKey"];
+            TelemetryConfiguration.Active.InstrumentationKey = instrumentationKey;
+
+            // Example App insights logging
+            TelemetryClient telemetry = new TelemetryClient();
+            telemetry.TrackTrace("sBlog is starting, trace and errors are being logged");
+            var errorLogger = new ErrorLogger(new ApplicationException("This is an example error for testing"));
+            errorLogger.Log();
+
             AreaRegistration.RegisterAllAreas();
 
             SetupDependencyManagement();

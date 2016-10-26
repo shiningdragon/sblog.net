@@ -5,10 +5,10 @@
     <parameterEntry kind="XmlFile" scope="Web.config"
                     match="/configuration/sblognetSettings/@connectionString" />
   </parameter>
-  <parameter name="Example AppSetting"
-           description="An example app setting"
+  <parameter name="ApplicationInsightsInstrumentationKey AppSetting"
+           description="ApplicationInsightsInstrumentationKey AppSetting"
            defaultValue="someValue">
     <parameterEntry kind="XmlFile" scope="Web.config"
-                    match="/configuration/appSettings/add[@key='exampleAppSetting']/@value" />
+                    match="/configuration/appSettings/add[@key='ApplicationInsightsInstrumentationKey']/@value" />
   </parameter>
 </parameters>
