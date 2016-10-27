@@ -10,7 +10,7 @@ namespace sBlog.Net.Tests.AkismetTests
     [TestClass]
     public class CommentProcessorPipelineTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Process_Comment_When_Akistmet_Is_Disabled()
         {
             var comment = MockObjectFactory.CreateCommentRepository();
@@ -31,7 +31,7 @@ namespace sBlog.Net.Tests.AkismetTests
             Assert.AreEqual(commentEntity.CommentContent, commentsByPost.First().CommentContent);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Process_Comment_When_Akistmet_Is_Enabled_And_Delete_Is_Disabled_Ham()
         {
             var comment = MockObjectFactory.CreateCommentRepository();
@@ -52,7 +52,7 @@ namespace sBlog.Net.Tests.AkismetTests
             Assert.AreEqual(commentEntity.CommentContent, commentsByPost.First().CommentContent);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Process_Comment_When_Akistmet_Is_Enabled_And_Delete_Is_Disabled_Spam()
         {
             var comment = MockObjectFactory.CreateCommentRepository();
@@ -74,7 +74,7 @@ namespace sBlog.Net.Tests.AkismetTests
             Assert.AreEqual(2, commentInQn.CommentStatus);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Process_Comment_When_Akistmet_Is_Enabled_And_Delete_Is_Enabled_Ham()
         {
             var comment = MockObjectFactory.CreateCommentRepository();
@@ -95,7 +95,7 @@ namespace sBlog.Net.Tests.AkismetTests
             Assert.AreEqual(commentEntity.CommentContent, commentsByPost.First().CommentContent);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Process_Comment_When_Akistmet_Is_Enabled_And_Delete_Is_Enabled_Spam()
         {
             var comment = MockObjectFactory.CreateCommentRepository();

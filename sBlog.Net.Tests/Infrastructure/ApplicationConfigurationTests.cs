@@ -8,7 +8,7 @@ namespace sBlog.Net.Tests.Infrastructure
     [TestClass]
     public class ApplicationConfigurationTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanReadAThemeFromWebConfig()
         {
             var themeSettings = BlogStaticConfig.Theme;
@@ -16,7 +16,7 @@ namespace sBlog.Net.Tests.Infrastructure
             Assert.AreEqual("PerfectBlemish", themeSettings.SelectedTheme);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanReadConnectionString()
         {
             var connectionString = ApplicationConfiguration.ConnectionString;
@@ -24,7 +24,7 @@ namespace sBlog.Net.Tests.Infrastructure
             Assert.AreEqual("Server=localhost;Database=sblog;user id=msuser1;password=msuser1;", connectionString);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanReadHasherTyeFromWebConfig()
         {
             var hasherType = ApplicationConfiguration.HasherTypeName;
@@ -32,7 +32,7 @@ namespace sBlog.Net.Tests.Infrastructure
             Assert.AreEqual("sBlog.Net.Domain.Hashers.Sha5Hasher", hasherType);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanReadCacheDurationFromWebConfig()
         {
             var cacheDuration = ApplicationConfiguration.CacheDuration;
@@ -40,7 +40,7 @@ namespace sBlog.Net.Tests.Infrastructure
             Assert.AreEqual(15, cacheDuration);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanReadBitlyUserNameFromWebConfig()
         {
             var bitlyName = ApplicationConfiguration.BitlyUserName;
@@ -48,7 +48,7 @@ namespace sBlog.Net.Tests.Infrastructure
             Assert.AreEqual("sampleaccount", bitlyName);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanReadBitlyApiKeyFromWebConfig()
         {
             var bitlyKey = ApplicationConfiguration.BitlyApiKey;

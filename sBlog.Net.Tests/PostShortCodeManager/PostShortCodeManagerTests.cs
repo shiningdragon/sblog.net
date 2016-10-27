@@ -11,7 +11,7 @@ namespace sBlog.Net.Tests.PostShortCodeManager
     [TestClass]
     public class PostShortCodeManagerTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_CSharp_Possiblity()
         {
             var aliases = new List<string> { "c#", "c-sharp", "csharp" };
@@ -22,7 +22,7 @@ namespace sBlog.Net.Tests.PostShortCodeManager
             aliases.ForEach(alias => Assert.IsTrue(csharpPossiblity.PossibleAliases.Contains(alias)));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Ruby_Possiblity()
         {
             var aliases = new List<string> { "ruby", "rails", "ror", "rb" };
@@ -33,7 +33,7 @@ namespace sBlog.Net.Tests.PostShortCodeManager
             aliases.ForEach(alias => Assert.IsTrue(csharpPossiblity.PossibleAliases.Contains(alias)));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Java_Possiblity()
         {
             var aliases = new List<string> { "java" };
@@ -44,7 +44,7 @@ namespace sBlog.Net.Tests.PostShortCodeManager
             aliases.ForEach(alias => Assert.IsTrue(csharpPossiblity.PossibleAliases.Contains(alias)));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Cpp_Possiblity()
         {
             var aliases = new List<string> { "cpp", "c" };
@@ -55,7 +55,7 @@ namespace sBlog.Net.Tests.PostShortCodeManager
             aliases.ForEach(alias => Assert.IsTrue(csharpPossiblity.PossibleAliases.Contains(alias)));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_JScript_Possiblity()
         {
             var aliases = new List<string> { "js", "jscript", "javascript" };
@@ -66,7 +66,7 @@ namespace sBlog.Net.Tests.PostShortCodeManager
             aliases.ForEach(alias => Assert.IsTrue(csharpPossiblity.PossibleAliases.Contains(alias)));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Css_Possiblity()
         {
             var aliases = new List<string> { "css" };
@@ -77,7 +77,7 @@ namespace sBlog.Net.Tests.PostShortCodeManager
             aliases.ForEach(alias => Assert.IsTrue(csharpPossiblity.PossibleAliases.Contains(alias)));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Possibilities_For_Various_Brushes()
         {
             var possibleBrushes = new List<string> { "AppleScript", "AS3", "Bash", "ColdFusion",
@@ -95,7 +95,7 @@ namespace sBlog.Net.Tests.PostShortCodeManager
             });
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Path_Mapper_Can_Identify_A_Folder()
         {
             var pathMapper = new MockPathMapper();

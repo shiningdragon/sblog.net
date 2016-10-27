@@ -44,7 +44,7 @@ namespace sBlog.Net.Tests.Controllers
             }
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Get_A_Single_Page()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -59,7 +59,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("Page Content  29", page.PostContent);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Get_A_Single_Page_Private()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -74,7 +74,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("Page Content  36", page.PostContent);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         [ExpectedException(typeof(UrlNotFoundException), "Unable to find a page w/ the url a-test-url-36")]
         public void Can_Throw_Exception_For_Illegal_Access()
         {
@@ -87,7 +87,7 @@ namespace sBlog.Net.Tests.Controllers
             var page = model.Post;
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_All_Pages()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -108,7 +108,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(false, second.Selected);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Other_Pages()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -128,7 +128,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("a-test-url-34", second.PostUrl);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Other_Pages_Authenticated()
         {
             var httpContext = GetHttpContext(true, 1);

@@ -7,7 +7,7 @@ namespace sBlog.Net.Tests.Generators
     [TestClass]
     public class UniqueUrlGeneratorTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_Url_1()
         {
             const string postTitle = "a test url 29";
@@ -16,7 +16,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("a-test-url-29", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_Url_1_Edit()
         {
             const string postTitle = "a test url 20";
@@ -25,7 +25,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("a-test-url-20", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Non_Duplicate_Url_2()
         {
             const string postTitle = "a test url 20";
@@ -34,7 +34,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("a-test-url-20-2", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Non_Duplicate_Url_3()
         {
             const string postTitle = "programatic web.config";
@@ -43,7 +43,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("programatic-web-config", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Non_Duplicate_Url_4()
         {
             const string postTitle = "programatic web.config.config";

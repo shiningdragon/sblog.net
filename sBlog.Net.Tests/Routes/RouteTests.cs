@@ -8,7 +8,7 @@ namespace sBlog.Net.Tests.Routes
     [TestClass]
     public class RouteTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Logon_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/logon");
@@ -22,7 +22,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("LogOn", routeData.Values["action"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Logoff_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/logoff");
@@ -36,7 +36,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("LogOff", routeData.Values["action"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Credits_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/credits");
@@ -50,7 +50,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("Credits", routeData.Values["action"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Authors_Url_Without_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/authors");
@@ -64,7 +64,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("AuthorListing", routeData.Values["action"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Authors_Url_With_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/authors/page/2");
@@ -79,7 +79,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("2", routeData.Values["pageNumber"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Author_Posts_Url_Without_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/authors/admin");
@@ -94,7 +94,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("admin", routeData.Values["authorName"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Author_Posts_Url_With_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/authors/admin/page/2");
@@ -110,7 +110,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("2", routeData.Values["pageNumber"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Pages_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/pages/some-page");
@@ -125,7 +125,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("some-page", routeData.Values["pageUrl"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Pages_Url_With_Status()
         {
             var context = MockFactory.GetMockContext(0, false, "~/pages/some-page/comment-posted");
@@ -141,7 +141,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("comment-posted", routeData.Values["status"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Page_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/page/1");
@@ -156,7 +156,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("1", routeData.Values["pageNumber"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Category_Url_Without_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/category/asp-net");
@@ -171,7 +171,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("asp-net", routeData.Values["categoryName"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Category_Url_With_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/category/asp-net/page/2");
@@ -187,7 +187,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("2", routeData.Values["pageNumber"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Tag_Url_Without_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/tag/asp-net");
@@ -202,7 +202,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("asp-net", routeData.Values["tagName"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Tag_Url_With_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/tag/asp-net/page/2");
@@ -218,7 +218,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("2", routeData.Values["pageNumber"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Individual_Post()
         {
             var context = MockFactory.GetMockContext(0, false, "~/2013/03/some-post");
@@ -235,7 +235,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("some-post", routeData.Values["url"]);            
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Individual_Post_With_Status()
         {
             var context = MockFactory.GetMockContext(0, false, "~/2013/03/some-post/comment-posted");
@@ -253,7 +253,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("comment-posted", routeData.Values["status"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_MonthYear_Url_Without_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/2013/02");
@@ -269,7 +269,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("02", routeData.Values["month"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_MonthYear_Url_With_Page_Number()
         {
             var context = MockFactory.GetMockContext(0, false, "~/2013/02/page/2");
@@ -286,7 +286,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("2", routeData.Values["pageNumber"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_404_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/404");
@@ -300,7 +300,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("Index", routeData.Values["action"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Under_Construction_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/under-construction");
@@ -314,7 +314,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("Index", routeData.Values["action"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Invalid_Theme_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/invalid-theme");
@@ -328,7 +328,7 @@ namespace sBlog.Net.Tests.Routes
             Assert.AreEqual("InvalidTheme", routeData.Values["action"]);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Identify_Default_Url()
         {
             var context = MockFactory.GetMockContext(0, false, "~/home/index");

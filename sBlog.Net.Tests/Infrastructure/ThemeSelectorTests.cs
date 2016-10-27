@@ -8,7 +8,7 @@ namespace sBlog.Net.Tests.Infrastructure
     [TestClass]
     public class ThemeSelectorTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanSelectAWebConfigTheme()
         {
             var settings = MockAppFactory.GetMockSettings();
@@ -18,7 +18,7 @@ namespace sBlog.Net.Tests.Infrastructure
             Assert.AreEqual("PrePaid", selectedTheme);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanSelectASettingsTheme()
         {
             var settings = MockAppFactory.GetMockSettings();
@@ -28,7 +28,7 @@ namespace sBlog.Net.Tests.Infrastructure
             Assert.AreEqual("PerfectBlemish", selectedTheme);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanSelectASettingsThemeWithInvalidWebConfigTheme()
         {
             var settings = MockAppFactory.GetMockSettings();
@@ -38,7 +38,7 @@ namespace sBlog.Net.Tests.Infrastructure
             Assert.AreEqual("PerfectBlemish", selectedTheme);
         } 
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void ReturnsNullIfNeitherExists()
         {
             var settings = MockAppFactory.GetMockSettings();

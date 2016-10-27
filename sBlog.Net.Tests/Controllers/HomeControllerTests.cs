@@ -43,7 +43,7 @@ namespace sBlog.Net.Tests.Controllers
             }
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_First_Page_With_5_Items()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -58,7 +58,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("Post Title 7", posts.Single(p => p.Post.PostID == 7).Post.PostTitle);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Second_Page_With_5_Items()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -73,7 +73,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("Post Title 20", posts.Single(p => p.Post.PostID == 20).Post.PostTitle);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_First_Page_With_5_Items_Authenticated()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -88,7 +88,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("[Private] Post Title 14", posts.Single(p => p.Post.PostID == 14).Post.PostTitle);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Second_Page_With_5_Items_Authenticated()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -103,7 +103,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("Post Title 7", posts.Single(p => p.Post.PostID == 7).Post.PostTitle);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Third_Page_With_5_Items_Authenticated()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -118,7 +118,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("Post Title 21", posts.Single(p => p.Post.PostID == 21).Post.PostTitle);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Year_Month()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -134,7 +134,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(4, posts.Single(p => p.Post.PostID == 7).Post.PostAddedDate.Month);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Year_Month_Page_Two()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -150,7 +150,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(4, posts.Single(p => p.Post.PostID == 1).Post.PostAddedDate.Month);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Year_Month_Authenticated()
         {
             var httpContext = GetHttpContext(true, 2);
@@ -166,7 +166,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(1, posts.Single(p => p.Post.PostID == 28).Post.PostAddedDate.Month);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Year_Month_Page_Two_Authenticated()
         {
             var httpContext = GetHttpContext(true, 2);
@@ -182,7 +182,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(1, posts.Single(p => p.Post.PostID == 21).Post.PostAddedDate.Month);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Tag_Name_Page_1()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -199,7 +199,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.Single(p => p.Post.PostID == 7).Post.Tags.Any(t => t.TagSlug == "csharp"));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Tag_Name_Page_2()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -216,7 +216,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.Single(p => p.Post.PostID == 19).Post.Tags.Any(t => t.TagSlug == "csharp"));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Tag_Name_Page_1_Authenticated()
         {
             var httpContext = GetHttpContext(true, 2);
@@ -233,7 +233,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.Single(p => p.Post.PostID == 28).Post.Tags.Any(t => t.TagSlug == "ruby"));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Tag_Name_Page_2_Authenticated()
         {
             var httpContext = GetHttpContext(true, 2);
@@ -250,7 +250,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.Single(p => p.Post.PostID == 23).Post.Tags.Any(t => t.TagSlug == "ruby"));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Category_Name_Page_1()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -267,7 +267,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.First().Post.Categories.Any(c => c.CategorySlug == "csharp"));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Category_Name_Page_2()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -284,7 +284,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.First().Post.Categories.Any(c => c.CategorySlug == "csharp"));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Category_Name_Page_1_Authenticated()
         {
             var httpContext = GetHttpContext(true, 2);
@@ -300,7 +300,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.First().Post.Categories.Any(c => c.CategoryName == "CSharp"));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Category_Name_Page_2_Authenticated()
         {
             var httpContext = GetHttpContext(true, 2);
@@ -316,7 +316,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.First().Post.Categories.Any(c => c.CategoryName == "CSharp"));
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Category_Name_Page_3_Authenticated()
         {
             var httpContext = GetHttpContext(true, 2);
@@ -330,7 +330,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.IsTrue(posts.Count == 0);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_URL()
         {
             var httpContext = GetHttpContext(false, 0);
@@ -346,7 +346,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(4, post.PostAddedDate.Month);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_URL_Private_Owner()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -362,7 +362,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(4, post.PostAddedDate.Month);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_URL_Private_Admin()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -378,7 +378,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(4, post.PostAddedDate.Month);
         }        
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         [ExpectedException(typeof(UrlNotFoundException), "Unable to find a post w/ the url a-test-url-25 for the month 01 and year 2012")]
         public void Can_Throw_Appropriate_Exception_When_Accessing_Private_Post()
         {
@@ -391,7 +391,7 @@ namespace sBlog.Net.Tests.Controllers
             var post = model.Post;
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         [ExpectedException(typeof(UrlNotFoundException), "Unable to find a post w/ the url a-test-url-10 for the month 04 and year 2012")]
         public void Can_Return_Posts_By_URL_Private_Non_Admin()
         {

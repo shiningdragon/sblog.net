@@ -8,7 +8,7 @@ namespace sBlog.Net.Tests.SocialFeatures
     [TestClass]
     public class SocialFeatureListTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void CanIdentifyEnabledSocialFeatures()
         {
             var socialConfig = new SocialFeaturesElement

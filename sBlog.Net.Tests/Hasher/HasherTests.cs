@@ -6,7 +6,7 @@ namespace sBlog.Net.Tests.Hasher
     [TestClass]
     public class HasherTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_The_Expected_Hasher()
         {
             var hasher = Net.Infrastructure.Hasher.Instance;

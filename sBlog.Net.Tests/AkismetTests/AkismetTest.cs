@@ -18,13 +18,13 @@ namespace sBlog.Net.Tests.AkismetTests
         }
 
         [Ignore]
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Verification() 
         {
             Assert.IsTrue(api.VerifyKey(), "VerifyKey() returned 'False' when 'True' was expected.");
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void SpamTest() 
         {            
             var comment = new AkismetComment
@@ -46,7 +46,7 @@ namespace sBlog.Net.Tests.AkismetTests
         }
 
         [Ignore]
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void NonSpamTest() 
         {
             var comment = new AkismetComment
@@ -68,7 +68,7 @@ namespace sBlog.Net.Tests.AkismetTests
         }
 
         [Ignore]
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void SubmitSpam()
         {
             var comment = new AkismetComment
@@ -88,7 +88,7 @@ namespace sBlog.Net.Tests.AkismetTests
         }
 
         [Ignore]
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void SubmitHam() 
         {
             var comment = new AkismetComment

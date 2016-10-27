@@ -9,7 +9,7 @@ namespace sBlog.Net.Tests.Collections
     [TestClass]
     public class ArchiveCollectionTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Archive_Collection_With_Required_Month_And_Years()
         {
             IPost post = new MockPost();

@@ -19,7 +19,7 @@ namespace sBlog.Net.Tests.Controllers
             HttpContext.Current = MockHelperFactory.FakeHttpContext();
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Author()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -36,7 +36,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual("Admin", author.UserDisplayName);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_By_Author_Page_2()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -51,7 +51,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(0, author.Posts.Count);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_For_Author()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -67,7 +67,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(1, posts.First().Post.OwnerUserID);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_For_Author_Page_2()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -82,7 +82,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(1, posts.First().Post.OwnerUserID);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_For_Another_Author()
         {
             var httpContext = GetHttpContext(true, 1);
@@ -98,7 +98,7 @@ namespace sBlog.Net.Tests.Controllers
             Assert.AreEqual(2, posts.First().Post.OwnerUserID);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Return_Posts_For_Another_Author_Page_2()
         {
             var httpContext = GetHttpContext(true, 1);

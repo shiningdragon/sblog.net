@@ -7,7 +7,7 @@ namespace sBlog.Net.Tests.Generators
     [TestClass]
     public class SlugGeneratorTests
     {
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug()
         {
             const string tag = "C#";
@@ -16,7 +16,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("c", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate()
         {
             const string tag = "C$";
@@ -25,7 +25,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("c-2", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_2()
         {
             const string tag = "C@";
@@ -34,7 +34,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("c-3", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_3()
         {
             const string tag = "C@";
@@ -43,7 +43,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("c-6", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_4()
         {
             const string tag = "C@";
@@ -52,7 +52,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("c-2", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_New_Tag()
         {
             const string tag = "mvc 3";
@@ -61,7 +61,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("mvc-3", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_New_Tag_With_Period()
         {
             const string tag = "web.config";
@@ -70,7 +70,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("web-config", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_New_Tag_With_Period_2()
         {
             const string tag = "web.config";
@@ -79,7 +79,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("web-config-2", generatedSlug);
         }
         
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_6()
         {
             const string tag = "mvc3";
@@ -88,7 +88,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("mvc3-2", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_7()
         {
             const string tag = "mvc3";
@@ -97,7 +97,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("mvc3", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_8()
         {
             const string tag = "c          #";
@@ -106,7 +106,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("c-0", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Tag_With_Lot_Of_Spaces()
         {
             const string tag = "c          #";
@@ -115,7 +115,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("c-0-2", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Duplicate_9()
         {
             const string tag = "c%";
@@ -124,7 +124,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("c-3", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Text_With_Hyphen()
         {
             const string tag = "web-config";
@@ -133,7 +133,7 @@ namespace sBlog.Net.Tests.Generators
             Assert.AreEqual("web-config", generatedSlug);
         }
 
-        [TestMethod]
+        [TestCategory("Unit"),TestMethod]
         public void Can_Generate_Slug_For_Text_With_Hyphen_2()
         {
             const string tag = "web - config";
