@@ -36,7 +36,7 @@ namespace sBlog.Net.FunctionalTests
             using (HttpWebResponse response = (HttpWebResponse)req.GetResponse())
             {
                 TestContext.WriteLine("Request to {0} returned with {1}", homePageUrl, response.StatusCode);
-                Assert.AreEqual(response.StatusCode, "OK");
+                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
             }
         }
     }
