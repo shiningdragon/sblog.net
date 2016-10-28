@@ -30,10 +30,13 @@ namespace sBlog.Net.FunctionalTests
         {
             string homePageUrl = ConfigurationManager.AppSettings["sBlogHomePage"];
 
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(homePageUrl);
-            req.Method = "GET";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(homePageUrl);            
+            request.Method = "GET";
 
-            using (HttpWebResponse response = (HttpWebResponse)req.GetResponse())
+            // This is a temporary fix to ignore ssl errors as I am using self signed certs on deployed websites currently
+            request.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => { return true; };
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
                 TestContext.WriteLine("Request to {0} returned with {1}", homePageUrl, response.StatusCode);
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
