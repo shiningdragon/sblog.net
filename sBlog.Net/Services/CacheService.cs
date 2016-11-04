@@ -31,11 +31,11 @@ namespace sBlog.Net.Services
             if (item == null)
             {
                 item = getItemCallback();
-                HttpContext.Current.Cache.Insert(cacheID, 
-                                                 item, 
-                                                 null, 
-                                                 DateTime.Now.AddMinutes(ApplicationConfiguration.CacheDuration), 
-                                                 Cache.NoSlidingExpiration);
+                //HttpContext.Current.Cache.Insert(cacheID, 
+                //                                 item, 
+                //                                 null, 
+                //                                 DateTime.Now.AddMinutes(ApplicationConfiguration.CacheDuration), 
+                //                                 Cache.NoSlidingExpiration);
             }
             return item;
         }
