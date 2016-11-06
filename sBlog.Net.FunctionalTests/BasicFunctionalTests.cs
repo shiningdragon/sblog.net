@@ -67,7 +67,7 @@ namespace sBlog.Net.FunctionalTests
         {
             InternetExplorerOptions options = new InternetExplorerOptions();
             options.IgnoreZoomLevel = true;
-            driver = new InternetExplorerDriver(options);
+            driver = new InternetExplorerDriver(".\\Drivers\\", options);
         }
     }
 }
